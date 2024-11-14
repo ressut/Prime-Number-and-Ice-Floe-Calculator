@@ -55,11 +55,12 @@ while keep_going != 'yes':
         keep_going = input("Do you want to check another number? yes/no: ").lower()
 
 def ice_floe():
-    reading_1 = input("Enter the first reading: ")
-    if reading_1.isdigit():
-        num1 = int(reading_1)
-        break
-    else:
-        print("Invalid input. Please enter an integer.")
-print(f"First Reading: {reading_1}")
+    while True:
+        reading_1 = input("Enter the first reading: ")
+        if reading_1.isdigit():
+            num = int(reading_1)
+            break
+        else:
+            print("Invalid input. Please enter an integer.")
+    print(f"First Reading: {reading_1}")
 ice_floe()
