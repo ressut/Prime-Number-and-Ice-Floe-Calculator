@@ -56,11 +56,21 @@ while keep_going != 'yes':
 
 def ice_floe():
     while True:
+        # First Reading
         reading_1 = input("Enter the first reading: ")
         if reading_1.isdigit():
-            num = int(reading_1)
+            num1 = int(reading_1)
             break
         else:
             print("Invalid input. Please enter an integer.")
-    print(f"First Reading: {reading_1}")
+            
+            # Second Reading
+    while True:
+        reading_2 = input("Enter the second reading: ")
+        if reading_2.isdigit():
+            num2 = int(reading_2)
+            break
+        else:
+            print("Invalid input. Please enter an integer.")
+    print(f"First Reading: {reading_1}, Second Reading: {reading_2}")
 ice_floe()
