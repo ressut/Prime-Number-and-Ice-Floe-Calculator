@@ -12,7 +12,7 @@ print("Program is starting...")
 print()
 
 # Function to check if the number is odd and prime
-def main():
+def odds():
     while True:
         num_str = input("Enter an integer: ")
         
@@ -42,17 +42,19 @@ def main():
             break  # Exit the loop after one valid input
         else:
             print("Invalid input. Please enter an integer.")
-main()
 # Call the function to execute
-keep_going = input("Do you want to check another number? yes/no: ").lower()
-while keep_going != 'yes':
-    if keep_going == 'no':
-        print()
-        print(f"Thank you and goodbye.")
-        quit()
+while True:
+    odds()
+    keep_going = input("Do you want to check another number? yes/no: ").lower()
+    if keep_going == 'yes':
+        pass
+    elif keep_going == 'no':
+        break
     else:
         print("Please answer with 'yes' or 'no'.")
-        keep_going = input("Do you want to check another number? yes/no: ").lower()
+print()
+print(f"Ice Floe Calculator starting...")
+print()
 
 def ice_floe():
     while True:
@@ -72,5 +74,13 @@ def ice_floe():
             break
         else:
             print("Invalid input. Please enter an integer.")
-    print(f"First Reading: {reading_1}, Second Reading: {reading_2}")
+            # Third Reading
+    while True:
+        reading_3 = input("Enter the third reading: ")
+        if reading_3.isdigit():
+            num3 = int(reading_3)
+            break
+        else:
+            print("Invalid input. Please enter an integer.")
+    return reading_1, reading_2, reading_3
 ice_floe()
