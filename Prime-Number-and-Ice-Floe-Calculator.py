@@ -87,6 +87,8 @@ def ice_floe():
 def floe_volume():
     num1, num2, num3 = ice_floe() # Get the values from the ice_floe function
     volume = (num1*num2)*num3
-    print()
+    return volume
+def volume_op():
+    volume = floe_volume()
     print(f"The Ice Floe volume is: {volume:.2f}")
-floe_volume()
+volume_op()
