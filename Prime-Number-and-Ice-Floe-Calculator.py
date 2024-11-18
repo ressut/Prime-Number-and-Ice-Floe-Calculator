@@ -90,5 +90,5 @@ def floe_volume():
     return volume
 def volume_op():
     volume = floe_volume()
-    print(f"The Ice Floe volume is: {volume:.2f}")
+    print(f"The Ice Floe volume is: {volume:.2f} cubic metres")
 volume_op()
