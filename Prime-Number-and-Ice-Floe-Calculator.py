@@ -42,16 +42,7 @@ def prime():
             break  # Exit the loop after one valid input
         else:
             print("Invalid input. Please enter an integer.")
-# Call the function to execute
-while True:
-    prime()
-    keep_going = input("Do you want to check another number? yes/no: ").lower()
-    if keep_going == 'yes':
-        pass
-    elif keep_going == 'no':
-        break
-    else:
-        print("Please answer with 'yes' or 'no'.")
+prime()
 print()
 print(f"Ice Floe Calculator starting...")
 print()
@@ -90,5 +81,5 @@ def floe_volume():
     return volume
 def volume_op():
     volume = floe_volume()
-    print(f"The Ice Floe volume is: {volume:.2f} cubic metres")
+    print(f"The Ice Floe volume is: {volume} cubic metres")
 volume_op()
