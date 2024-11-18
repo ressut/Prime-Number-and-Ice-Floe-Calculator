@@ -12,7 +12,7 @@ print("Program is starting...")
 print()
 
 # Function to check if the number is odd and prime
-def odds():
+def prime():
     while True:
         num_str = input("Enter an integer: ")
         
@@ -44,7 +44,7 @@ def odds():
             print("Invalid input. Please enter an integer.")
 # Call the function to execute
 while True:
-    odds()
+    prime()
     keep_going = input("Do you want to check another number? yes/no: ").lower()
     if keep_going == 'yes':
         pass
@@ -59,7 +59,7 @@ print()
 def ice_floe():
     while True:
         # First Reading
-        reading_1 = input("Enter the first reading: ")
+        reading_1 = input("Enter the Length: ")
         if reading_1.isdigit():
             num1 = int(reading_1)
             break
@@ -68,7 +68,7 @@ def ice_floe():
             
             # Second Reading
     while True:
-        reading_2 = input("Enter the second reading: ")
+        reading_2 = input("Enter the Breadth: ")
         if reading_2.isdigit():
             num2 = int(reading_2)
             break
@@ -76,11 +76,17 @@ def ice_floe():
             print("Invalid input. Please enter an integer.")
             # Third Reading
     while True:
-        reading_3 = input("Enter the third reading: ")
+        reading_3 = input("Enter the Height: ")
         if reading_3.isdigit():
             num3 = int(reading_3)
             break
         else:
             print("Invalid input. Please enter an integer.")
-    return reading_1, reading_2, reading_3
-ice_floe()
+    return num1, num2, num3
+
+def floe_volume():
+    num1, num2, num3 = ice_floe() # Get the values from the ice_floe function
+    volume = (num1*num2)*num3
+    print()
+    print(f"The Ice Floe volume is: {volume:.2f}")
+floe_volume()
