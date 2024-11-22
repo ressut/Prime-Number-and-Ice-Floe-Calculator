@@ -45,7 +45,7 @@ def ice_floe():
     
     # Calculate the average freeboard
     average_freeboard = sum(readings) / len(readings)
-    print(f"Average freeboard: {average_freeboard}")
+    print(f"Average freeboard: {average_freeboard:.1f}")
     
     # Get the length and breadth
     while True:
@@ -64,12 +64,12 @@ def ice_floe():
         else:
             print("Invalid input. Please enter an integer.")
     
-    return num1, num2, average_freeboard
+    return num1, num2, average_freeboard  # Return average freeboard
 
 # Calculate the volume using the thickness and area
-def floe_volume(num1, num2, num3):
+def floe_volume(num1, num2, average_freeboard):
     # Calculate thickness (9 times the average freeboard)
-    thickness = num3 * 9
+    thickness = average_freeboard * 9
     
     # Calculate volume (Area * Thickness)
     volume = num1 * num2 * thickness
@@ -78,9 +78,9 @@ def floe_volume(num1, num2, num3):
 # Output the volume
 def volume_op():
     # Get the values from the ice_floe function
-    num1, num2, num3 = ice_floe()  
-    volume = floe_volume(num1, num2, num3)  # Pass values to floe_volume function
-    print(f"The Ice Floe volume is: {volume} cubic metres")
+    num1, num2, average_freeboard = ice_floe()  # Get average freeboard
+    volume = floe_volume(num1, num2, average_freeboard)  # Pass the average freeboard
+    print(f"The Ice Floe volume is: {volume:.1f} cubic metres")
     print()
 
 def main():
@@ -111,24 +111,16 @@ def main():
         volume_op()  # Calculate and output volume
 
         # Ask if the user wants to run the program again
-        run_again = input("Do you want to run the program again? yes/no: ").lower()
-        if run_again == 'no':
-            print("Goodbye! Exiting the program.")
-            break
-        elif run_again != 'yes':
-            print("Invalid input. Exiting the program.")
-            break
+        while True:  # Loop to keep asking for a valid input
+            run_again = input("Do you want to run the program again? yes/no: ").lower()
+            if run_again == 'no':
+                print("Goodbye! Exiting the program.")
+                exit() # Ends the running
+            elif run_again == 'yes':
+                break  # Exit the loop and continue the program
+            else:
+                print("Invalid input. Please answer with 'yes' or 'no'.")
 
 # Make sure main() runs first when this script is executed
 if __name__ == "__main__":
     main()
-
-'''
-Test Table for Prime Calculator:
-| Input | Expected Output               |
-|-------|-------------------------------|
-| 2     | 2 is prime but not odd.       |
-| 3     | 3 is an odd and prime number. |
-| 4     | 4 is neither odd nor prime.   |
-| 9     | 9 is odd but not prime.       |
-'''
